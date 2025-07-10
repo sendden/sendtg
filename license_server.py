@@ -9,6 +9,11 @@ licenses = {
     "MN34-OP56-QR78": "2025-08-14",
 }
 
+
+@app.route('/')
+def index():
+    return "License API is running"
+
 @app.route('/check_key', methods=['POST'])
 def check_key():
     data = request.json
