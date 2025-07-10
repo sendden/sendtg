@@ -27,3 +27,10 @@ def check_key():
     if datetime.now() > expiry_date:
         return jsonify({"status": "expired", "message": "Срок действия ключа истёк"}), 403
     return jsonify({"status": "valid", "message": "Ключ валиден"}), 200
+
+import os
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # берём порт из переменной окружения PORT, по умолчанию 5000
+    app.run(host='0.0.0.0', port=port)
+
